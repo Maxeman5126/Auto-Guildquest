@@ -2,12 +2,13 @@
 
 Auto-Vanguard + Extra + Logger / Guild-Quest / Guadian Legion / Daily Credit with UI.
 
-Commands | Infos
+## Commands
+
+Command | Description
 --- | ---
-Auto | base command
-UI | Show the ui setting
-VQ | for enabled/disabled Auto-Vanguard
-GQ | for enabled/disabled Auto-GuildQuest with relaunch
-VGLog | for enabled/disabled VanguardQuest-Logger
-GL | for enabled/disabled Auto claim box in Gardian legion
-DL | for enabled/disabled Auto claim Daily cradit 
+auto UI | Show the UI setting
+auto VQ | Enable/disable Auto-Vanguard
+auto GQ | Enable/disable Auto-GuildQuest with relaunch
+auto VGLog | Enable/disable VanguardQuest-Logger
+auto GL | Enable/disable Auto claim box in Gardian legion
+auto DL | Enable/disable Auto claim Daily cradit 
