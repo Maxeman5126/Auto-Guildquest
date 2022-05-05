@@ -9,7 +9,8 @@
     },
     "author": "PsykoDev",
     "description": "Auto-Guildquest",
-    "servers": ["https://raw.githubusercontent.com/PsykoDev/Auto-Guildquest/master/"],
+    "servers": ["https://raw.githubusercontent.com/tera-private-mods/Auto-Guildquest/master/"],
     "supportUrl": "https://github.com/PsykoDev/Auto-Guildquest/issues",
-    "version": "91.4"
+    "version": "91.4",
+    "disableAutoUpdate": false
 }
