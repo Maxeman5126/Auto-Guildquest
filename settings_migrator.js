@@ -1,7 +1,7 @@
 const DefaultSettings = {
     "Vanguard": true, 
-    "VLog": true,
-    "GQuestLog": true,
+    "VLog": false,
+    "GQuestLog": false,
     "Guardian": true,
     "Daily": true,
     "battleground": [

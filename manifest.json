@@ -1,11 +1,13 @@
 {
     "files": {
         "README.md": "72f23308b0432ad14a7e7e6062b09ae7a9e7cf07ee64a41f89726d1b0a32f818",
-        "config.json": "fbbdc4929cfaaa37bca22d71133efc64973290aab295387337c64716f436a2f3",
         "index.js": "c2107084453f3e907b754849a31e5b876842074b66b45b4a2864ef88b4768a9a",
         "module.json": "f9fcb7fa7afaf5c4d2895b08bb29fe294a9452b29223d73fc23cca195c9d4aef",
-        "quests.json": "ce99f18eb0a0e6ec450a8b3716a015b8c937e59808f088673d030629751e22c8",
-        "settings_migrator.js": "65e58a3cb8505f22010df12023113022814839e3e8329257e8353740534d89a9",
+        "quests.json": {
+            "overwrite": false,
+            "hash": "ce99f18eb0a0e6ec450a8b3716a015b8c937e59808f088673d030629751e22c8"
+        },
+        "settings_migrator.js": "45791b5f7514b819cf2fd59196875161c745bc7e0b59451b3641c2f67981d6ed",
         "settings_structure.js": "53243b6bed09d6fb7531abe2b6d473e2dae2c6a1028d336956686e6821acb2f2"
     }
 }
