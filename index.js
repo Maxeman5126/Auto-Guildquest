@@ -72,7 +72,7 @@ module.exports = function AutoGuildquest(mod) {
 
 	mod.hook("S_FIELD_POINT_INFO", 2, event => {
 		if (entered && event.cleared != cleared && event.cleared - 1 > event.claimed) {
-			mod.send("S_CHAT", mod.majorPatchVersion >= 108 4 : 3, {
+			mod.send("S_CHAT", mod.majorPatchVersion >= 108 ? 4 : 3, {
 				"channel": 21,
 				"gm": true,
 				"name": "Guardian Mission",
