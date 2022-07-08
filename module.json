@@ -11,6 +11,5 @@
     "description": "Auto-Vanguard + Extra + Logger / Guild-Quest / Guadian Legion / Daily Credit with UI.",
     "servers": ["https://raw.githubusercontent.com/tera-private-mods/Auto-Guildquest/master/"],
     "supportUrl": "https://github.com/PsykoDev/Auto-Guildquest/issues",
-    "version": "92.04",
     "disableAutoUpdate": false
 }
