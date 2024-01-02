@@ -5,11 +5,11 @@
         "guiName": "Auto-Guildquest",
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",
-        "settingsVersion": 1
+        "settingsVersion": 2
     },
     "author": "PsykoDev",
     "description": "Auto-Vanguard + Extra + Logger / Guild-Quest / Guadian Legion / Daily Credit with UI.",
-    "servers": ["https://raw.githubusercontent.com/tera-private-mods/Auto-Guildquest/master/"],
-    "supportUrl": "https://github.com/PsykoDev/Auto-Guildquest/issues",
+    "servers": ["https://raw.githubusercontent.com/Maxeman5126/Auto-Guildquest/master/"],
+    "supportUrl": "https://github.com/Maxeman5126/Auto-Guildquest/issues",
     "disableAutoUpdate": false
 }

@@ -1,6 +1,8 @@
 const DefaultSettings = {
 	"Vanguard": true,
 	"VLog": false,
+	"VGChestEnabled": true,
+	"VGChestItem": 156426,
 	"GQuest": true,
 	"Guardian": true,
 	"Daily": true,
@@ -34,6 +36,10 @@ module.exports = function MigrateSettings(from_ver, to_ver, settings) {
 		// a switch for each version step that upgrades to the next version. This enables us to
 		// upgrade from any version to the latest version without additional effort!
 		switch (to_ver) {
+            case 2:
+                settings.VGChestEnabled = true;
+                settings.VGChestItem = 156426;
+                break;
 			default:
 				const oldsettings = settings;
 				settings = Object.assign(DefaultSettings, {});

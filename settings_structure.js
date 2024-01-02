@@ -10,6 +10,11 @@ module.exports = [
         "type": "bool"
     },
     {
+        "key": "VGChestEnabled",
+        "name": "Vanguard Chest Notifier",
+        "type": "bool"
+    },
+    {
         "key": "GQuest",
         "name": "Guild Quest",
         "type": "bool"

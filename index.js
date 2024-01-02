@@ -8,6 +8,7 @@ module.exports = function AutoGuildquest(mod) {
 		entered = false,
 		hold = false,
 		daily = 0;
+	mod.game.initialize("inventory");
 
 	mod.game.me.on("change_zone", zone => {
 		if (mod.settings.battleground.includes(zone)) {
@@ -94,6 +95,9 @@ module.exports = function AutoGuildquest(mod) {
 		if (mod.settings.VLog) {
 			report();
 		}
+		if (mod.settings.VGChestEnabled) {
+			checkChests();
+		}
 	}
 
 	function report() {
@@ -101,6 +105,17 @@ module.exports = function AutoGuildquest(mod) {
 			mod.command.message(`Daily Vanguard Requests completed: ${ daily}`);
 		} else {
 			mod.command.message("You have completed all 16 Vanguard Requests today.");
+		}
+	}
+
+	function checkChests() {
+		let vgChests = mod.game.inventory.getTotalAmountInBagOrPockets(Number(mod.settings.VGChestItem));
+		if (vgChests > 90) mod.command.message(`You're at ${vgChests} VG chests. Open or bank them soon.`); //Warn us in chat starting at 90 vg chests
+		if (vgChests >=97) { //Use notice (only visible to yourself) starting at 97 chests
+			mod.send("S_CHAT", mod.majorPatchVersion >= 108 ? 4 : 3, {
+			"channel": 21,
+			"message": `You're at ${vgChests} VG chests. Open or bank them immediately.`
+			});
 		}
 	}
 
@@ -151,6 +166,10 @@ module.exports = function AutoGuildquest(mod) {
 			mod.settings.VLog = !mod.settings.VLog;
 			mod.command.message(`Vanguard-Quest Logger: ${ mod.settings.VLog ? "On" : "Off"}`);
 		},
+		"VGChest": () => {
+			mod.settings.VGChestEnabled = !mod.settings.VGChestEnabled;
+			mod.command.message(`Vanguard-Chest Notifier: ${ mod.settings.VGChestEnabled ? "On" : "Off"}`);
+		},
 		"UI": () => {
 			ui.show();
 		},
@@ -160,6 +179,7 @@ module.exports = function AutoGuildquest(mod) {
 			mod.command.message("VQ | Auto-Vanguard"),
 			mod.command.message("GQ | Auto-GuildQuest with relaunch"),
 			mod.command.message("VGLog |Vanguard-Quest-Logger"),
+			mod.command.message("VGChest | Vanguard Chest-Notifier"),
 			mod.command.message("GL |Auto claim box in Gardian legion"),
 			mod.command.message("DL |Auto claim Daily cradit ");
 		}
