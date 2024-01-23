@@ -13,7 +13,7 @@ module.exports = function AutoGuildquest(mod) {
 	mod.game.initialize("inventory");
 	
 	mod.dispatch.addDefinition("S_AVAILABLE_EVENT_MATCHING_LIST", 3, `${__dirname}\\defs\\S_AVAILABLE_EVENT_MATCHING_LIST.3.def`);
-	mod.dispatch.addDefinition("C_RECEIVE_PLAYTIME_EVENT_REWARD", 99 `${__dirname}\\defs\\C_RECEIVE_PLAYTIME_EVENT_REWARD.99.def`);
+	mod.dispatch.addDefinition("C_RECEIVE_PLAYTIME_EVENT_REWARD", 99, `${__dirname}\\defs\\C_RECEIVE_PLAYTIME_EVENT_REWARD.99.def`);
 
 	mod.game.me.on("change_zone", zone => {
 		if (mod.settings.battleground.includes(zone)) {
