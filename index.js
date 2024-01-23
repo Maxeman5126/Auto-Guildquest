@@ -164,8 +164,8 @@ module.exports = function AutoGuildquest(mod) {
 		e.items.forEach((item) => {
 			if (item.timeRequired < 600 && item.redeemable == 1) {
 				mod.send("C_RECEIVE_PLAYTIME_EVENT_REWARD", 99, {
-					"row": row,
-					"column": column
+					"row": item.row,
+					"column": item.column
 				});
 			}
 		})
