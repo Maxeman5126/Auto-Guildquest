@@ -34,8 +34,8 @@ module.exports = function AutoGuildquest(mod) {
 		playTimeConfig();
 	});
 
-	mod.hookOnce("S_AVAILABLE_EVENT_MATCHING_LIST", 1, event => {
-		daily = event.unk4weekly = event.unk6;
+	mod.hook("S_AVAILABLE_EVENT_MATCHING_LIST", 3, event => {
+		daily = event.currDailyBonusCompleted
 	});
 
 	mod.hook("S_LOGIN", "event", () => {
@@ -224,8 +224,8 @@ module.exports = function AutoGuildquest(mod) {
 			mod.command.message("VGLog |Vanguard-Quest-Logger"),
 			mod.command.message("VGChest | Vanguard Chest-Notifier"),
 			mod.command.message("PT | Auto Claim Daily playTime Rewards"),
-			mod.command.message("GL |Auto claim box in Gardian legion"),
-			mod.command.message("DL |Auto claim Daily cradit ");
+			mod.command.message("GL | Auto claim box in Gardian legion"),
+			mod.command.message("DC | Auto claim Daily credit ");
 		}
 	});
 };

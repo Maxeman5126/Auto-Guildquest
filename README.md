@@ -13,4 +13,4 @@ auto VGLog | Enable/disable VanguardQuest-Logger
 auto VGChest | Enable/disable Vanguard Chest-Notifier
 auto PT | Enable/disable Auto Claim Daily playTime Rewards
 auto GL | Enable/disable Auto claim box in Gardian legion
-auto DL | Enable/disable Auto claim Daily cradit 
+auto DC | Enable/disable Auto claim Daily credit 
