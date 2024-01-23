@@ -5,9 +5,9 @@
         "guiName": "Auto-Guildquest",
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",
-        "settingsVersion": 2
+        "settingsVersion": 3
     },
-    "author": "PsykoDev",
+    "author": "PsykoDev (modified by Maxeman)",
     "description": "Auto-Vanguard + Extra + Logger / Guild-Quest / Guadian Legion / Daily Credit with UI.",
     "servers": ["https://raw.githubusercontent.com/Maxeman5126/Auto-Guildquest/master/"],
     "supportUrl": "https://github.com/Maxeman5126/Auto-Guildquest/issues",

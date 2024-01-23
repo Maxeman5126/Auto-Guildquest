@@ -16,7 +16,8 @@ const DefaultSettings = {
 		117,
 		118,
 		119
-	]
+	],
+	"playTimeEnabled": true
 };
 
 module.exports = function MigrateSettings(from_ver, to_ver, settings) {
@@ -40,6 +41,9 @@ module.exports = function MigrateSettings(from_ver, to_ver, settings) {
                 settings.VGChestEnabled = true;
                 settings.VGChestItem = 156426;
                 break;
+			case 3:
+				settings.playTimeEnabled = true;
+				break;
 			default:
 				const oldsettings = settings;
 				settings = Object.assign(DefaultSettings, {});

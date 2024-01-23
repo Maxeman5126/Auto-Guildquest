@@ -15,6 +15,11 @@ module.exports = [
         "type": "bool"
     },
     {
+        "key": "playTimeEnabled",
+        "name": "Auto Claim Daily PlayTime Rewards",
+        "type": "bool"
+    },
+    {
         "key": "GQuest",
         "name": "Guild Quest",
         "type": "bool"

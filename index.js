@@ -7,8 +7,17 @@ module.exports = function AutoGuildquest(mod) {
 		cleared = 0,
 		entered = false,
 		hold = false,
-		daily = 0;
+		daily = 0,
+		playTimeInterval = null,
+		previousPlayTimeCheck = null;
 	mod.game.initialize("inventory");
+	
+	mod.dispatch.addDefinition("C_RECEIVE_PLAYTIME_EVENT_REWARD", 99, [
+		["unk1", "uint32"],
+		["unk2", "uint32"],
+		["row", "int32"],
+		["column", "int32"]
+	]);
 
 	mod.game.me.on("change_zone", zone => {
 		if (mod.settings.battleground.includes(zone)) {
@@ -22,6 +31,7 @@ module.exports = function AutoGuildquest(mod) {
 
 	mod.game.on("enter_game", () => {
 		daily = 0;
+		playTimeConfig();
 	});
 
 	mod.hookOnce("S_AVAILABLE_EVENT_MATCHING_LIST", 1, event => {
@@ -133,10 +143,38 @@ module.exports = function AutoGuildquest(mod) {
 		}
 	}
 
+	function playTimeConfig() {
+		if (mod.settings.playTimeEnabled) {
+			checkPlayTime();
+			playTimeInterval = mod.setInterval(checkPlayTime, 1800000);
+		} else {
+			mod.clearInterval(playTimeInterval);
+		}
+	}
+
+	function checkPlayTime() {
+		mod.send("C_REQUEST_PLAYTIME", 1, {});
+	};
+
+	mod.hook("S_PLAYTIME_EVENT_REWARD_DATA", 1, e => {
+		if (!mod.settings.playTimeEnabled) return;
+		//Game sometimes spams multiple packets, so we avoid sending multiple claims by ensuring we wait at least 5 seconds between each check.
+		if (previousPlayTimeCheck && (Date.now() - previousPlayTimeCheck) < 5000) return;
+		previousPlayTimeCheck = Date.now();
+		e.items.forEach((item) => {
+			if (item.timeRequired < 600 && item.redeemable == 1) {
+				mod.send("C_RECEIVE_PLAYTIME_EVENT_REWARD", 99, {
+					"row": row,
+					"column": column
+				});
+			}
+		})
+	});
+
 	let ui = null;
 	if (global.TeraProxy.GUIMode) {
 		ui = new SettingsUI(mod, require("./settings_structure"), mod.settings, { "alwaysOnTop": true, "width": 550, "height": 232 });
-		ui.on("update", settings => { mod.settings = settings; });
+		ui.on("update", settings => { mod.settings = settings; playTimeConfig(); });
 		this.destructor = () => {
 			if (ui) {
 				ui.close();
@@ -170,6 +208,11 @@ module.exports = function AutoGuildquest(mod) {
 			mod.settings.VGChestEnabled = !mod.settings.VGChestEnabled;
 			mod.command.message(`Vanguard-Chest Notifier: ${ mod.settings.VGChestEnabled ? "On" : "Off"}`);
 		},
+		"PT": () => {
+			mod.settings.playTimeEnabled = !mod.settings.playTimeEnabled;
+			mod.command.message(`Auto Claim Daily playTime Rewards: ${ mod.settings.playTimeEnabled ? "On" : "Off"}`);
+			playTimeConfig();
+		},
 		"UI": () => {
 			ui.show();
 		},
@@ -180,6 +223,7 @@ module.exports = function AutoGuildquest(mod) {
 			mod.command.message("GQ | Auto-GuildQuest with relaunch"),
 			mod.command.message("VGLog |Vanguard-Quest-Logger"),
 			mod.command.message("VGChest | Vanguard Chest-Notifier"),
+			mod.command.message("PT | Auto Claim Daily playTime Rewards"),
 			mod.command.message("GL |Auto claim box in Gardian legion"),
 			mod.command.message("DL |Auto claim Daily cradit ");
 		}
