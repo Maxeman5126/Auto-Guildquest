@@ -1,7 +1,9 @@
 {
     "files": {
         "README.md": "8929eae4bd465578d55a2b8aabccb047e794239e31d6ff21ba1bb7e7d8c1eadd",
-        "index.js": "8b80ec81fbc5f5e39b9a066ab8c83e83dc9ed4582bb057ffcd8cdcf67cfc65f3",
+        "defs/C_RECEIVE_PLAYTIME_EVENT_REWARD.99.def": "4f6babc3716113b90f0445ca17947d08b28e1ae760167862085188a4c5844c1a",
+        "defs/S_AVAILABLE_EVENT_MATCHING_LIST.3.def": "5d0585b1adbfff672e06967d5785160d9038dce6643e3f9754b16e1e88c2201d",
+        "index.js": "f32eb0fb9d3aa7865d0fb47473e77c56f8e7c00be2c3759c0b888ca5d569c9e7",
         "module.json": "521eb48c16b6fdfcc24642f701778dcd3ce0dc41a133bc4ed1dc57261f58e3c5",
         "settings_migrator.js": "1b36962f498381ca96b1dd05729a5718943eb9505398109ee052de6bdd01e1f2",
         "settings_structure.js": "3198e45e31800cf86ab8035dbe7fb9d0fafa67de87d1513554bd063e34948c21"
